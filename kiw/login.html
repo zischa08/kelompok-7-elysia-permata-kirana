@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Custom styles for this template -->
+</head>
+<body>
+    <!--Layout-->
+ <div
+     class="container d-flex justify-content-center
+      align-items-center vh-100"
+     >
+    <div class="card p-4 shadow-lg">
+        <h2 class="text-center mb-4">Login</h2>
+        <div id="alert" class="alert alert-danger d-none" role="alert">
+            Username atau password salah!
+        </div>
+        <form id="loginForm">
+            <div class="mb-3">
+                <label for="Username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" required/>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">password</label>
+                <input
+                 type="password"
+                 class="form-control"
+                 id="password"
+                 required
+                 />
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+    </div>
+    <!--script bootstrap-->
+    <script src="./js/bootstrap.min.js"></script>
+    <!--custom javascript-->
+    <script>
+        document
+        .getElementById("loginForm")
+        .addEventListener("submit",function (event) {
+             event.preventDefault();
+
+        //data login statis
+        const staticUser = {
+            username: "kirana",
+            password: "1234",
+        };
+        //ambil nilai input
+        const usernameInput = document.getElementById("username").value;
+        const passwordInput = document.getElementById("password").value;
+
+        //cek username dan password
+        if(
+            usernameInput === staticUser.username &&
+            passwordInput === staticUser.password
+        ){
+            alert("Login berhasil!");
+            window.location.href ="index.html";
+        }else{
+            document.getElementById("alert").classList.remove("d-none")
+        }
+     });
+    </script>
+</body>
+</html>
